@@ -102,5 +102,11 @@ namespace MediaBrowser.Model.Dto
         /// Gets or sets the client.
         /// </summary>
         public string? Client { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether to show the original title.
+        /// </summary>
+        /// <value><c>true</c> if original title should be shown; otherwise, <c>false</c>.</value>
+        public bool ShowOriginalTitle { get; set; }
     }
 }

@@ -93,6 +93,8 @@ namespace MediaBrowser.Controller.Entities
 
         public const char SlugChar = '-';
 
+        private readonly IDisplayPreferencesManager _displayPreferencesManager;
+
         protected BaseItem()
         {
             Tags = Array.Empty<string>();
@@ -104,6 +106,11 @@ namespace MediaBrowser.Controller.Entities
             ProductionLocations = Array.Empty<string>();
             RemoteTrailers = Array.Empty<MediaUrl>();
             ExtraIds = Array.Empty<Guid>();
+        }
+
+        protected BaseItem(IDisplayPreferencesManager displayPreferencesManager)
+        {
+            _displayPreferencesManager = displayPreferencesManager;
         }
 
         [JsonIgnore]
@@ -2319,13 +2326,6 @@ namespace MediaBrowser.Controller.Entities
                 Year = ProductionYear,
                 PremiereDate = PremiereDate
             };
-        }
-
-        private readonly IDisplayPreferencesManager _displayPreferencesManager;
-
-        protected BaseItem(IDisplayPreferencesManager displayPreferencesManager)
-        {
-            _displayPreferencesManager = displayPreferencesManager;
         }
 
         protected virtual string GetNameForMetadataLookup()
