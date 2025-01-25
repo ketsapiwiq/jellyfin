@@ -74,6 +74,8 @@
     "ScheduledTaskFailedWithName": "{0} failed",
     "ScheduledTaskStartedWithName": "{0} started",
     "ServerNameNeedsToBeRestarted": "{0} needs to be restarted",
+    "ShowOriginalTitle": "Show Original Title",
+    "ShowOriginalTitleHelp": "Display the original title of media items when available",
     "Shows": "Shows",
     "Songs": "Songs",
     "StartupEmbyServerIsLoading": "Jellyfin Server is loading. Please try again shortly.",
