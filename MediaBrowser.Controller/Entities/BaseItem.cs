@@ -2321,12 +2321,19 @@ namespace MediaBrowser.Controller.Entities
             };
         }
 
+        private readonly IDisplayPreferencesManager _displayPreferencesManager;
+
+        protected BaseItem(IDisplayPreferencesManager displayPreferencesManager)
+        {
+            _displayPreferencesManager = displayPreferencesManager;
+        }
+
         protected virtual string GetNameForMetadataLookup()
         {
             var user = GetOwner();
             if (user != null)
             {
-                var displayPreferences = LibraryManager.GetDisplayPreferencesManager().GetDisplayPreferences(user.Id, Id, "web");
+                var displayPreferences = _displayPreferencesManager.GetDisplayPreferences(user.Id, Id, "web");
                 if (displayPreferences?.ShowOriginalTitle == true && !string.IsNullOrEmpty(OriginalTitle))
                 {
                     return OriginalTitle;
