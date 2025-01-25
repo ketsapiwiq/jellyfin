@@ -74,7 +74,8 @@ public class DisplayPreferencesController : BaseJellyfinApiController
             RememberSorting = itemPreferences.RememberSorting,
             ScrollDirection = displayPreferences.ScrollDirection,
             ShowBackdrop = displayPreferences.ShowBackdrop,
-            ShowSidebar = displayPreferences.ShowSidebar
+            ShowSidebar = displayPreferences.ShowSidebar,
+            ShowOriginalTitle = displayPreferences.ShowOriginalTitle
         };
 
         foreach (var homeSection in displayPreferences.HomeSections)
@@ -143,6 +144,7 @@ public class DisplayPreferencesController : BaseJellyfinApiController
         existingDisplayPreferences.IndexBy = Enum.TryParse<IndexingKind>(displayPreferences.IndexBy, true, out var indexBy) ? indexBy : null;
         existingDisplayPreferences.ShowBackdrop = displayPreferences.ShowBackdrop;
         existingDisplayPreferences.ShowSidebar = displayPreferences.ShowSidebar;
+        existingDisplayPreferences.ShowOriginalTitle = displayPreferences.ShowOriginalTitle;
 
         existingDisplayPreferences.ScrollDirection = displayPreferences.ScrollDirection;
         existingDisplayPreferences.ChromecastVersion = displayPreferences.CustomPrefs.TryGetValue("chromecastVersion", out var chromecastVersion)

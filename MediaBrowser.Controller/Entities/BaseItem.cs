@@ -2323,6 +2323,16 @@ namespace MediaBrowser.Controller.Entities
 
         protected virtual string GetNameForMetadataLookup()
         {
+            var user = GetOwner();
+            if (user != null)
+            {
+                var displayPreferences = LibraryManager.GetDisplayPreferencesManager().GetDisplayPreferences(user.Id, Id, "web");
+                if (displayPreferences?.ShowOriginalTitle == true && !string.IsNullOrEmpty(OriginalTitle))
+                {
+                    return OriginalTitle;
+                }
+            }
+
             return Name;
         }
 

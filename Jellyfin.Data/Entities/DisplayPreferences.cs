@@ -28,6 +28,7 @@ namespace Jellyfin.Data.Entities
             SkipBackwardLength = 10000;
             ScrollDirection = ScrollDirection.Horizontal;
             ChromecastVersion = ChromecastVersion.Stable;
+            ShowOriginalTitle = false;
 
             HomeSections = new HashSet<HomeSection>();
         }
@@ -82,6 +83,11 @@ namespace Jellyfin.Data.Entities
         /// Required.
         /// </remarks>
         public bool ShowBackdrop { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether to always show the original title.
+        /// </summary>
+        public bool ShowOriginalTitle { get; set; }
 
         /// <summary>
         /// Gets or sets the scroll direction.
