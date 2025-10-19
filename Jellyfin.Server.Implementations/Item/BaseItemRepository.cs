@@ -1936,7 +1936,11 @@ public sealed class BaseItemRepository
 
         if (!string.IsNullOrWhiteSpace(filter.NameStartsWith))
         {
-            baseQuery = baseQuery.Where(e => e.SortName!.StartsWith(filter.NameStartsWith));
+            var prefix = filter.NameStartsWith!.ToLower();
+            baseQuery = baseQuery.Where(e =>
+                e.SortName!.ToLower().StartsWith(prefix)
+                || e.Name!.ToLower().StartsWith(prefix)
+                || (e.OriginalTitle != null && e.OriginalTitle.ToLower().StartsWith(prefix)));
         }
 
         if (!string.IsNullOrWhiteSpace(filter.NameStartsWithOrGreater))
